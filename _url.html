@@ -74,6 +74,19 @@
         .success {
             color: #059669;
         }
+        .tip-message {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .tip-message a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .tip-message a:hover {
+            text-decoration: underline;
+        }
         .footer-links {
             margin-top: 2rem;
             text-align: center;
@@ -113,6 +126,10 @@
             <button type="submit" id="submitBtn">创建短链</button>
         </form>
         <div id="message" class="message"></div>
+
+        <div class="tip-message">
+            如果您想要无中间页或更短的pathname，请 <a href="https://2x.nz" target="_blank">赞助</a>
+        </div>
 
         <div class="footer-links">
             <a href="https://github.com/afoim/Static_Redirect_Group" target="_blank">GitHub</a>
