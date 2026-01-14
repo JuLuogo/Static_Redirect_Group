@@ -71,12 +71,31 @@ export default {
       // 2. 准备数据
       // 将 Unix 时间戳转换为 ISO 8601 字符串
       const expiredDate = new Date(expired_at * 1000);
+      const now = new Date();
       if (isNaN(expiredDate.getTime())) {
          return Response.json({ error: "Invalid timestamp" }, { 
              status: 400,
              headers: { "Access-Control-Allow-Origin": "*" }
          });
       }
+
+      // 检查有效期是否超过 7 天
+      const diffTime = expiredDate.getTime() - now.getTime();
+      const diffDays = diffTime / (1000 * 3600 * 24);
+      if (diffDays > 7) {
+          return Response.json({ error: "Expiration date cannot exceed 7 days from now" }, { 
+              status: 400,
+              headers: { "Access-Control-Allow-Origin": "*" }
+          });
+      }
+      // 检查有效期是否在过去
+      if (diffTime <= 0) {
+          return Response.json({ error: "Expiration date must be in the future" }, { 
+              status: 400,
+              headers: { "Access-Control-Allow-Origin": "*" }
+          });
+      }
+
       const expiredAtISO = expiredDate.toISOString();
 
       // 3. 获取 GitHub 文件
