@@ -2154,5 +2154,9 @@ window.RULES_INTERMEDIATE = {
     "/jiangjun": {
         "url": "https://www.bilibili.com/",
         "expired_at": "2026-01-17T11:08:00.000Z"
+    },
+    "/li2313": {
+        "url": "https://www.bilibili.com/",
+        "expired_at": "2026-01-17T11:30:00.000Z"
     }
 };
